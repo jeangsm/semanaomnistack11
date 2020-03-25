@@ -35,7 +35,6 @@ module.exports = {
     async delete(req, res) {
         const { id } = req.params
         const ong_id = req.headers.authorization
-        console.log("Ong Id: "+ong_id)
         const incident = await connection('incidents')
             .where('id', id)
             .select('ong_id')

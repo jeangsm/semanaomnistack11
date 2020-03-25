@@ -10,14 +10,9 @@ module.exports = {
     async create(req, res) {
         const {name, email, whatsapp, city, uf} = req.body
         const id = crypto.randomBytes(4).toString('HEX')
-        
-        console.log("Inserido no banco de dados...")
-
         await connection('ongs').insert({
             id, name, email, whatsapp, city, uf
         })
-
-        console.log("Inserido: " + name + " - " + id)
 
         return res.json({"message":"OK!","id":id})
     }
